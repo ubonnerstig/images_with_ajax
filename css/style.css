@@ -9,6 +9,10 @@
     box-sizing: border-box;
 }
 
+.no_scroll {
+    overflow: hidden;
+}
+
 .ui-resizeable-handle, .ui-resizeable-n, .ui-resizeable-e, .ui-resizeable-s, .ui-resizeable-w, .ui-resizeable-se, .ui-resizeable-sw, .ui-resizeable-ne, .ui-resizeable-nw {
     display: none;
     height: 0;
@@ -70,7 +74,7 @@ header {
     margin: 0 auto;
 }
 
-.ui-widget-header {
+div.ui-dialog-titlebar.ui-widget-header {
     background: 
     linear-gradient(
       rgba(22, 22, 22, 0.5) 70%, 
@@ -82,6 +86,14 @@ header {
     font-weight: 400;
     font-size: 1.5rem;
     height: 4rem;
+    width: 100%;
+    border-radius: 0;
+}
+
+div.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.modal.ui-resizable {
+    width: auto;
+    position: fixed;
+    left: 50%;
 }
 
 .ui-widget-overlay {
@@ -89,19 +101,21 @@ header {
     opacity: .5;      
 }
 
-.ui-widget.ui-widget-content {
-    background-color: transparent!important;
+div.ui-widget.ui-widget-content {
     border: none;
+    top: 15vh;
 }
 
-.ui-dialog .ui-dialog-content, .ui-dialog {
+.ui-dialog {
     padding: 0;
     border-radius: 0;
 }
 
-div.ui-dialog div.ui-dialog-content {
+div#dialog.ui-dialog-content.ui-widget-content {
+    padding: 0;
+    border-radius: 0;
     position: absolute;
-    width: 100%!important;
+    //width: 100%!important;
     margin-bottom: 0;
     top: 0px;
     z-index: -1;
@@ -113,15 +127,21 @@ div.ui-dialog div.ui-dialog-content {
 }
 
 div.modal {
-    position: fixed;
+    position: absolute;
     z-index: 500;
     align-content: center;
-   /* top: 15vh!important;
-    bottom: 15vh!important;*/
 }
 
-.modal_content img {
-    width: 100%;
+div.modal_content{
+    width: auto;
+    //height: 60vh;
+    //max-height: 90vh;
+    //width: 90vw;
+}
+
+div.modal_content img {
+    //width: 100%;
+    //height: 100%;
     bottom: 0;
 }
 
@@ -180,7 +200,7 @@ main > #imageResults {
 .float_class {
     float: left;
     position: relative;
-    width: 31.3%;
+    width: 31.6%;
     padding-bottom: 31.3%;
     margin: 0.83%;
     overflow: hidden;	
@@ -212,12 +232,12 @@ main > #imageResults {
 .float_img_container {
     position: absolute;
     width: 100%;
-    /*height: 100%; kolla på denna om man vill floata allt uppåt*/
+    height: 100%; /*kolla på denna om man vill floata allt uppåt*/
     overflow: hidden;
 }
 
 .float_img_container img {
-    width: auto;
+    /*width: auto;*/
     width: 100%;
     height: 100%;
     object-fit: cover;
