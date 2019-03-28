@@ -215,9 +215,8 @@ main > #imageResults {
     position: relative;
     width: 100%;
     min-height: 1px;
-    margin: 1%;
-    padding-right: 15px;
-    padding-left: 15px;
+	margin-top: 1%;
+	margin-bottom: 1%;
 }
 
 .float_class {
@@ -324,7 +323,7 @@ button#toggleFloat {
         text-align: left;
     }
 
-    form.form_search input{
+    form.form_search input {
         background-color: #ffffff;
         border: none;
         width: 70%;
