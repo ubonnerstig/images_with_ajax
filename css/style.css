@@ -2,10 +2,10 @@
 
 * {
     font-family: 'Raleway', sans-serif;
-    /*border: 1px solid red;*/
 }
 
 *, ::before, ::after {
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
@@ -34,8 +34,7 @@ h1 {
     font-size: 4rem;
     font-weight: 400;
     margin-top: 4rem;
-    margin-bottom: 0;
-    
+    margin-bottom: 0;    
 }
 
 main {
@@ -55,11 +54,31 @@ main {
 
 header {
     background: 
+    -webkit-gradient(
+      linear, 
+      left top, left bottom, 
+      from(rgba(22, 22, 22, 0.4)), 
+      to(rgba(22, 22, 22, 0.4))
+    ),
+    url(../images/bgkomprimerad.jpg);
+    background: 
+    -webkit-linear-gradient(
+      rgba(22, 22, 22, 0.4), 
+      rgba(22, 22, 22, 0.4)
+    ),
+    url(../images/bgkomprimerad.jpg);
+    background: 
+    -o-linear-gradient(
+      rgba(22, 22, 22, 0.4), 
+      rgba(22, 22, 22, 0.4)
+    ),
+    url(../images/bgkomprimerad.jpg);
+    background: 
     linear-gradient(
       rgba(22, 22, 22, 0.4), 
       rgba(22, 22, 22, 0.4)
     ),
-    url(../images/rolands-varsbergs-1436765-unsplash.jpg);
+    url(../images/bgkomprimerad.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center; 
@@ -67,14 +86,28 @@ header {
 }
 
 .header_wrap {
-    /*display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;*/
-    max-width: 40rem;
+    max-width: 95%;
     margin: 0 auto;
 }
 
 div.ui-dialog-titlebar.ui-widget-header {
+    background: 
+    -webkit-gradient(
+      linear, 
+      left top, left bottom, 
+      color-stop(70%, rgba(22, 22, 22, 0.5)), 
+      to(rgba(22, 22, 22, 0))
+    );
+    background: 
+    -webkit-linear-gradient(
+      rgba(22, 22, 22, 0.5) 70%, 
+      rgba(22, 22, 22, 0)
+    );
+    background: 
+    -o-linear-gradient(
+      rgba(22, 22, 22, 0.5) 70%, 
+      rgba(22, 22, 22, 0)
+    );
     background: 
     linear-gradient(
       rgba(22, 22, 22, 0.5) 70%, 
@@ -94,6 +127,7 @@ div.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.modal.ui-resiza
     width: auto;
     position: fixed;
     left: 50%;
+    top: 50%;
 }
 
 .ui-widget-overlay {
@@ -103,7 +137,6 @@ div.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.modal.ui-resiza
 
 div.ui-widget.ui-widget-content {
     border: none;
-    top: 15vh;
 }
 
 .ui-dialog {
@@ -115,34 +148,33 @@ div#dialog.ui-dialog-content.ui-widget-content {
     padding: 0;
     border-radius: 0;
     position: absolute;
-    //width: 100%!important;
     margin-bottom: 0;
     top: 0px;
     z-index: -1;
 }
 
 .ui-widget-content {
-    background-color: transparent!important;;
+    background-color: transparent!important;
     z-index: 500;
 }
 
 div.modal {
     position: absolute;
     z-index: 500;
-    align-content: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
 }
 
 div.modal_content{
-    width: auto;
-    //height: 60vh;
-    //max-height: 90vh;
-    //width: 90vw;
+    height: auto;
+    max-height: 80vh;
+    width: 90vw;
+    overflow: hidden;
 }
 
 div.modal_content img {
-    //width: 100%;
-    //height: 100%;
-    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
 }
 
 .ui-dialog .ui-dialog-titlebar-close {
@@ -155,46 +187,37 @@ div.modal_content img {
 }
 
 .row, .row_images {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
 }
 
 main > .row_images {
-    justify-content: flex-start;
-    /*margin: 0 auto;
-    max-width: 80%;*/
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
 }
 
 main > #imageResults {
     margin: 0 auto;
-    max-width: 80%;
-}
-
-.flex_full, .flex_half, .col {
-    position: relative;
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-}
-
-.flex_half {
-	flex: 0 0 50%;
-	max-width: 50%;
-}
-
-.flex_full {
-    flex: 0 0 100%;
-    max-width: 100%;
+    max-width: 95%;
 }
 
 .col {
-    flex: 0 0 100%;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
     max-width: 100%;
     position: relative;
     width: 100%;
     min-height: 1px;
     margin: 1%;
+    padding-right: 15px;
+    padding-left: 15px;
 }
 
 .float_class {
@@ -206,7 +229,7 @@ main > #imageResults {
     overflow: hidden;	
 }
 
-.col::before{
+.col::before {
 	content: "";
 	display: block;
 	padding-top: 100%;
@@ -219,7 +242,6 @@ main > #imageResults {
 	bottom: 0;
     right: 0;
     width: 100%;
-   /*height: 100%;*/
     overflow: hidden;
 }
 
@@ -232,19 +254,17 @@ main > #imageResults {
 .float_img_container {
     position: absolute;
     width: 100%;
-    height: 100%; /*kolla på denna om man vill floata allt uppåt*/
+    height: 100%;
     overflow: hidden;
 }
 
 .float_img_container img {
-    /*width: auto;*/
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: center;
-   /*-webkit-transform: translate(-50%,-50%);
-        -ms-transform: translate(-50%,-50%);
-            transform: translate(-50%,-50%);*/
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center;
+       object-position: center;
 }
 
 form.form_search {
@@ -255,7 +275,7 @@ form.form_search {
     text-align: right;
 }
 
-form.form_search input{
+form.form_search input {
     background-color: #ffffff;
     border: none;
     width: 100%;
@@ -282,8 +302,16 @@ button#toggleFloat {
     background-color: #7ec0cb;
 }
 
-
 @media screen and (min-width: 768px) {
+
+    .header_wrap {
+        max-width: 40rem;
+    }
+
+    main > #imageResults {
+        max-width: 80%;
+    }
+
 	.col {
         max-width: 46%;
         -webkit-box-flex: 0;
@@ -305,6 +333,10 @@ button#toggleFloat {
         border-radius: .2rem;
         padding: 1rem;
     }
+
+    div.modal_content {
+        max-width: 70vw;
+    }
 }
 
 @media screen and (min-width: 992px) {  
@@ -317,5 +349,10 @@ button#toggleFloat {
 
         margin: 1%;
     }
-    
+
+    div.modal_content {
+        width: auto;
+        height: 50vh;
+        max-width: 90vw;
+    }  
 }

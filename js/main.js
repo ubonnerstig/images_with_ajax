@@ -19,7 +19,6 @@ $(document).ready(function(){
             $('.float_class').toggleClass('col float_class');
             $('.float_img_container').toggleClass('img_container float_img_container'); 
             $('#imageResults').addClass("row_images");
-
         };
     });
 
@@ -45,7 +44,6 @@ $(document).ready(function(){
         event.preventDefault();
         var searchTag = $('#tag').val();
         searchTag = escapeHtml(searchTag);
-        console.log(searchTag);
 
         if(!searchTag.match(/[a-öA-Ö0-9-!@#$^_:,.]/)){
             alert("Invalid characters");
@@ -59,8 +57,6 @@ $(document).ready(function(){
                 crossDomain : true,
 
                 success: function(result){
-
-                    //$(".modal_content ").empty();
                     $("#imageResults").empty();
                     $("#tag").blur(); 
 
@@ -85,21 +81,18 @@ $(document).ready(function(){
                         $('<img>').attr("src", element.Link).appendTo('#' + index + '>.img_container');
                         //$('<p>').text(element.Date).appendTo('.' + index);
 
-                        $("#" + index).on('click', function() {
-
-                            
+                        $("#" + index).on('click', function() {                   
                             $("#dialog").empty();
-                            console.log($(this).attr("id"));
                             $( "#dialog" ).dialog({
                                 title: element.Title
-                        }).dialog( "open" );
+                        	}).dialog( "open" );
                             $('body').addClass('no_scroll');
                             $('<div>').addClass("modal_content").appendTo("#dialog");
                             $('<img>').attr("src", element.Link).appendTo('.modal_content');
-                            //funktion för att stänga
-                            console.log($('#dialog').width());
-                            console.log(typeof($('#dialog').width()));
-                            $("div.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.modal.ui-resizable").attr('style', '').css('width', $('#dialog').outerWidth() + 'px').css('margin-left', '-'+ $('#dialog').outerWidth()/2 +'px');
+
+                            let modalWidth = $('#dialog').outerWidth();
+                            let modalHeight = $('#dialog').outerHeight();
+                            $("div.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.modal.ui-resizable").attr('style', '').css('width', modalWidth + 'px').css('margin-left', '-'+ modalWidth/2 +'px').css('margin-top', '-'+ modalHeight/2 +'px');
 
 
                             $(".ui-widget-overlay").on('click', function() {
